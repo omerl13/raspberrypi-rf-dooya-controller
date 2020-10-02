@@ -1,0 +1,52 @@
+<!doctype html>
+
+<head>
+	<title>RC+</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset=utf-8>
+</head>
+
+<body>
+	<select id="num" name="num">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="0">0</option>
+	</select>
+	<br>
+	<button onclick="send('up')">▲</button>
+	<br>
+	<button onclick="send('stop')">▬▬</button>
+	<br>
+	<button onclick="send('down')">▼</button>
+
+</body>
+<script>
+	function send(code) {
+		let num = document.getElementById("num").value
+		fetch("http://127.0.0.1/ctrl?name=" + code + num)
+	}
+</script>
+<style>
+	select,
+	option {
+		font-size: 20px;
+		text-align: center;
+		text-align-last: center;
+	}
+
+	button,
+	select,
+	option {
+		width: 80%;
+		height: 40px;
+		border-radius: none;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+	}
+</style>
+
+</html>
