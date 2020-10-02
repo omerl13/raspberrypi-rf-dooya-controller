@@ -1,0 +1,36 @@
+<!doctype html>
+
+<head>
+    <title>RC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset=utf-8>
+</head>
+
+<body>
+    <br>
+    <button onclick="send('up')">▲</button>
+    <br>
+    <button onclick="send('stop')">▬▬</button>
+    <br>
+    <button onclick="send('down')">▼</button>
+
+</body>
+<script>
+    function send(code) {
+        fetch("http://127.0.0.1/ctrl?name=" + code)
+    }
+</script>
+<style>
+    button {
+        width: 85%;
+        height: 40px;
+        border-radius: none;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+</style>
+
+</html>
