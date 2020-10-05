@@ -32,7 +32,7 @@ def transmit(codes):
     for code_name in codes:
         code = KNOWN_CODES[code_name]
         for t in range(NUM_ATTEMPTS):
-            print('#' + str(t) + ' attempt for "' + code '"')
+            print('#' + str(t) + ' attempt for "' + code + '"')
             GPIO.output(TRANSMIT_PIN, 1)
             time.sleep(TIMINGS['first_on'])
             GPIO.output(TRANSMIT_PIN, 0)
