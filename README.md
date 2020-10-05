@@ -38,3 +38,11 @@ The `receicer.py` module is used to record RF signals from the remote control, i
  - `01010101` = Stop
 - In the DC2702 RC, the 4 digits before the action (digits 29-32) denoting the selected channel number on the RC (e.g.: `0001` for 1, `0010` for 2)
 - Code example: `11010000110110100000110011000001101010101` - will trigger `Stop` on channel `6` (so it is enough to record one signal from the original RC in order to recreate everything)
+
+## Transmitting RF Signals
+Transmitting the RF recorded signals is acheived by the `transmitter.py` module.
+- `transmitter.py` can be tested by passing in CLI by passing the required codes as arguments (e.g. `python transmitter.py example`)
+- Timings provided were measured by using the `reciever.py` module, and can be changed for different use cases
+- Both the reciever and the transmitter are using GPIO pin 23, this arbitrary choice can be changed and it migth be helpful to use different pin for each module for testing both components together.
+- Available codes are on the `KNOWN_CODES` dictionary
+- Each code will be transmitted multiple time (as much as set in `NUM_ATTEMPTS`)
