@@ -11,3 +11,5 @@ There are 2 HTML pages available:
 2. `templates/multi.html` (route: `/multi`) - this page provides a similar UI, with an addidion of select component to support multi-channels, similar to Dooya DC2702 Remote Control
 - It is possible to use `multi.html` page as a single RC for multiple products
 
+### API
+- `/ctrl?name={name}` - used to trigger the transmitter to transmit the requested code using the `name` query parameter
