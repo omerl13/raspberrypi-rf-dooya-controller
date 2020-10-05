@@ -26,6 +26,7 @@ The `receicer.py` module is used to record RF signals from the remote control, i
 
 ### Translating the Data:
 - The receiver code samples the physical receiver for a configured period of time (`RECORDING_DURATION`, in seconds).
+- Both the reciever and the transmitter are using GPIO pin 23, this arbitrary choice can be changed and it migth be helpful to use different pin for each module for testing both components together.
 - After finished sampling, a plot will be created, in which the signals transmitted are shown.
 - Each code starts with a long signal, and after it 40 shorter signals
  - Long `on` and short `off` will be translated to `1`
