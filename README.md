@@ -19,3 +19,21 @@ There are 2 HTML pages available:
 
 ### API
 - `/ctrl?name={name}` - used to trigger the transmitter to transmit the requested code using the `name` query parameter
+
+## Recording RF Signals
+The `receicer.py` module is used to record RF signals from the remote control, in order to reuse it later
+- Requires pyplot (`sudo apt-get install python-matplotlib`)
+
+### Translating the Data:
+- The receiver code samples the physical receiver for a configured period of time (`RECORDING_DURATION`, in seconds).
+- After finished sampling, a plot will be created, in which the signals transmitted are shown.
+- Each code starts with a long signal, and after it 40 shorter signals
+ - Long `on` and short `off` will be translated to `1`
+ - Short `on` and long `off` will be translated to `0`
+- Each code will be repeated several times (to ensure the product will success recognizing it)
+- The last 8 digits of the code are specifiying the action:
+ - `00011110` = Up
+ - `00110011` = Down
+ - `01010101` = Stop
+- In the DC2702 RC, the 4 digits before the action (digits 29-32) denoting the selected channel number on the RC (e.g.: `0001` for 1, `0010` for 2)
+- Code example: `11010000110110100000110011000001101010101` - will trigger `Stop` on channel `6` (so it is enough to record one signal from the original RC in order to recreate everything)
