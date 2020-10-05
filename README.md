@@ -1,4 +1,4 @@
-# raspberrypi-rf-dooya-controller
+# Raspberrypi RF Dooya Controller
 Remote control for Dooya RF curtains using RaspberryPi, including a web server with simple RC UI
 
 ## Requierments
