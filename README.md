@@ -1,6 +1,11 @@
 # raspberrypi-rf-dooya-controller
 Remote control for Dooya RF curtains using RaspberryPi
 
+## Requierments
+- A RaspberryPi
+- A 433MHz transmitter and receiver modules
+- Jumpers wires to connect the transmitter and receiver to the RaspberryPi
+
 ## Web Server
 Notes: 
 - Set the server URL in `templates/index.html` and `templates/multi.html` (default to `127.0.0.1`)
