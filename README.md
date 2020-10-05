@@ -6,20 +6,6 @@ Remote control for Dooya RF curtains using RaspberryPi
 - A 433MHz transmitter and receiver modules
 - Jumpers wires to connect the transmitter and receiver to the RaspberryPi
 
-## Web Server
-Notes: 
-- Set the server URL in `templates/index.html` and `templates/multi.html` (default to `127.0.0.1`)
-- Triggering multiple requests fast will cause some errors, due to the lack of synchronization mechanism
-
-### UI
-There are 2 HTML pages available:
-1. `templates/index.html` (route: `/`) - this page provides a simple UI, similar to Dooya DC2700 Remote Control
-2. `templates/multi.html` (route: `/multi`) - this page provides a similar UI, with an addidion of select component to support multi-channels, similar to Dooya DC2702 Remote Control
-- It is possible to use `multi.html` page as a single RC for multiple products
-
-### API
-- `/ctrl?name={name}` - used to trigger the transmitter to transmit the requested code using the `name` query parameter
-
 ## Recording RF Signals
 The `receicer.py` module is used to record RF signals from the remote control, in order to reuse it later
 - Requires pyplot (`sudo apt-get install python-matplotlib`)
@@ -46,3 +32,17 @@ Transmitting the RF recorded signals is acheived by the `transmitter.py` module.
 - Both the reciever and the transmitter are using GPIO pin 23, this arbitrary choice can be changed and it migth be helpful to use different pin for each module for testing both components together.
 - Available codes are on the `KNOWN_CODES` dictionary
 - Each code will be transmitted multiple time (as much as set in `NUM_ATTEMPTS`)
+
+## Web Server
+Notes: 
+- Set the server URL in `templates/index.html` and `templates/multi.html` (default to `127.0.0.1`)
+- Triggering multiple requests fast will cause some errors, due to the lack of synchronization mechanism
+
+### UI
+There are 2 HTML pages available:
+1. `templates/index.html` (route: `/`) - this page provides a simple UI, similar to Dooya DC2700 Remote Control
+2. `templates/multi.html` (route: `/multi`) - this page provides a similar UI, with an addidion of select component to support multi-channels, similar to Dooya DC2702 Remote Control
+- It is possible to use `multi.html` page as a single RC for multiple products
+
+### API
+- `/ctrl?name={name}` - used to trigger the transmitter to transmit the requested code using the `name` query parameter
